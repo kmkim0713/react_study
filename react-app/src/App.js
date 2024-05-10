@@ -13,14 +13,16 @@ function App() {
   // 자료를 저장하려면 state를 사용
   // a는 값, b는 state 변경을 도와주는 함수
   // 아래는 Destructuring 문법
-  let [a,b] = useState('남자코트추천');
+  // let [a,b] = useState('남자코트추천');
+  let [a, b] = useState(['남자코트추천', '강남 맛집', '신도림 맛집']);
   
+  let [like, setLike] = useState(0);
+
   // 왜 state를 사용해야하는가?
   // 그냥 변수를 사용하게되면 데이터가 바뀌었을 때, 자동으로 바뀌도록 작업을 해야함
   // state를 사용하게되면 html이 자동 재렌더링된다
   // 자주 변경될 것 같은 데이터를 state로 관리해야하는게 핵심
-
-  let [logo, setLogo] = useState('ReactBlog');
+  // state를 변경할 때는 무조건 set으로 변경해야 재렌더링시 반영된다
 
   // Destructuring 문법
   let num = [1,2];
@@ -28,6 +30,7 @@ function App() {
   let bb = num[1];
 
   let [qq,ww] = [1, 2];
+
 
 
   // style을 줄 때는 무조건 중괄호를 열고 객체로 전달해줘야한다
@@ -39,7 +42,15 @@ function App() {
         <h4 id={h4Id} style={{color:'red'}}>블로그</h4>
       </div>
       <div className='list'>
-        <h4>{a}</h4>
+        <h4>{a[0]} <span onClick={() => setLike(1)}>👍</span> {like} </h4>
+        <p>2월 17일 발행</p>
+      </div>
+      <div className='list'>
+        <h4>{a[1]} </h4>
+        <p>2월 17일 발행</p>
+      </div>
+      <div className='list'>
+        <h4>{a[2]} </h4>
         <p>2월 17일 발행</p>
       </div>
     </div>
