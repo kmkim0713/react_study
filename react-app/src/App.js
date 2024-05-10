@@ -14,7 +14,7 @@ function App() {
   // a는 값, b는 state 변경을 도와주는 함수
   // 아래는 Destructuring 문법
   // let [a,b] = useState('남자코트추천');
-  let [a, b] = useState(['남자코트추천', '강남 맛집', '신도림 맛집']);
+  let [title, setTitle] = useState(['남자코트추천', '강남 맛집', '신도림 맛집']);
   
   let [like, setLike] = useState(0);
 
@@ -41,16 +41,31 @@ function App() {
       <div className="black-nav">
         <h4 id={h4Id} style={{color:'red'}}>블로그</h4>
       </div>
+      
+      <button onClick={() => {
+        // setTitle('여자코트추천'); // 배열대신 String만 들어감
+        // setTitle(['여자코트추천', '강남 맛집', '신도림 맛집']);
+        // let copy = title; // 대괄호와 ...을 붙여줘야함
+        let copy = [...title]; 
+        copy[0] = '여자코트추천';
+
+        // state 변경함수는 기존state와 신규state가 같으면 변경하지 않는다
+        // array와 obj는 주소만 참조
+        // "..."은 괄호를 벗겨주는 문법, []는 대괄호를 다시 씌워주겠다는 의미
+        // 이를 통해 완전한 사본을 얻는다
+        setTitle(copy); 
+      }} >변경버튼</button>
+
       <div className='list'>
-        <h4>{a[0]} <span onClick={() => setLike(1)}>👍</span> {like} </h4>
+        <h4>{title[0]} <span onClick={() => setLike(like + 1)}>👍</span> {like} </h4>
         <p>2월 17일 발행</p>
       </div>
       <div className='list'>
-        <h4>{a[1]} </h4>
+        <h4>{title[1]} </h4>
         <p>2월 17일 발행</p>
       </div>
       <div className='list'>
-        <h4>{a[2]} </h4>
+        <h4>{title[2]} </h4>
         <p>2월 17일 발행</p>
       </div>
     </div>
