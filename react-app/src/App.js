@@ -2,22 +2,15 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+
+  // tag에 클래스를 줄 때는 class가 아니라 className으로 줘야함
+  // js로 작성하는 것 이기 때문
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App"> 
+      <div className="black-nav">
+        <h4>블로그</h4>
+      </div>
     </div>
   );
 }
