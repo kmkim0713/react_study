@@ -56,6 +56,12 @@ function App() {
         setTitle(copy); 
       }} >변경버튼</button>
 
+      <button onClick={() => {
+        let copy = [...title];
+        copy.sort();
+        setTitle(copy);
+      }}>정렬하기</button>
+
       <div className='list'>
         <h4>{title[0]} <span onClick={() => setLike(like + 1)}>👍</span> {like} </h4>
         <p>2월 17일 발행</p>
